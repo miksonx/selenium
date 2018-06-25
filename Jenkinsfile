@@ -25,9 +25,16 @@ pipeline {
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
-                    sh 'startup.sh stop'
-                    sh 'sleep 15'
-                    sh 'startup.sh start'
+                    // Permission to execute
+                    sh "chmod +x -R ${env.WORKSPACE}/../${env.JOB_NAME}@script"
+
+                    // Call SH
+                    sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/startup.sh stop"
+                    sh "sleep 15"
+                    sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/startup.sh start"
+                    //sh 'startup.sh stop'
+                    //sh 'sleep 15'
+                    //sh 'startup.sh start'
                 } 
             }
         }
