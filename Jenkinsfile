@@ -5,7 +5,7 @@ pipeline {
         jdk 'jdk8' 
     }
     triggers{
-        poolSCM('H/5 * * * *')
+        pollSCM('H/5 * * * *')
     }
     stages {
         stage ('Initialize') {
