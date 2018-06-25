@@ -28,6 +28,7 @@ pipeline {
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
+                    junit testResults: '**/*.xml', testDataPublishers: [[$class: 'StabilityTestDataPublisher']]
                     // Permission to execute
                     //sh "chmod +x -R ${env.WORKSPACE}/startup.sh"
 
