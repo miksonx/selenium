@@ -4,7 +4,7 @@
 
 checkpid()
 {
-        echo $(ps -ef | grep "myassistant-1.0.0-SNAPSHOT.jar" | grep -v grep | awk '{ print $2}')
+        echo $(ps -ef | grep "myassistant-0.0.1-SNAPSHOT.jar" | grep -v grep | awk '{ print $2}')
 }
 
 start ()
@@ -15,7 +15,7 @@ start ()
         echo ""
         printf "$(date +%Y%m%d-%H:%M:%S) MyAssistant is starting..."
         #cd /app/mservice/CBTK_new
-        nohup java -jar /tmp/myassistant-1.0.0-SNAPSHOT.jar > /dev/null 2>&1 &
+        nohup java -jar /tmp/myassistant-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &
 
     fi
 
