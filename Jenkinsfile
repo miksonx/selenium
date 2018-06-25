@@ -10,3 +10,4 @@ node {
 sh "startup.sh stop"
 sh "sleep 15"
 sh "startup.sh start"
+}
