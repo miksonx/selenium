@@ -25,9 +25,9 @@ pipeline {
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
-                    sh "startup.sh stop"
-                    sh "sleep 15"
-                    sh "startup.sh start"
+                    sh 'startup.sh stop'
+                    sh 'sleep 15'
+                    sh 'startup.sh start'
                 } 
             }
         }
