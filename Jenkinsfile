@@ -26,12 +26,12 @@ pipeline {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
                     // Permission to execute
-                    sh "chmod +x -R ${env.WORKSPACE}/../${env.JOB_NAME}@script"
+                    sh "chmod +x -R ${env.WORKSPACE}/startup.sh"
 
                     // Call SH
-                    sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/startup.sh stop"
+                    sh "${env.WORKSPACE}/startup.sh stop"
                     sh "sleep 15"
-                    sh "${env.WORKSPACE}/../${env.JOB_NAME}@script/startup.sh start"
+                    sh "${env.WORKSPACE}/startup.sh start"
                     //sh 'startup.sh stop'
                     //sh 'sleep 15'
                     //sh 'startup.sh start'
