@@ -4,6 +4,9 @@ pipeline {
         maven 'Maven 3.5.4' 
         jdk 'jdk8' 
     }
+    triggers{
+        poolSCM('H/5 * * * *)
+                }
     stages {
         stage ('Initialize') {
             steps {
