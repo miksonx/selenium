@@ -6,7 +6,7 @@
     <groupId>com.miksonx</groupId>
     <artifactId>myassistant</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>myassistant</name>
     <description>My home assistant</description>
@@ -47,7 +47,7 @@
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>myassistant</artifactId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
