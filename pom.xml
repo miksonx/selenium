@@ -24,7 +24,7 @@
         <java.version>1.8</java.version>
         <sonar.language>java</sonar.language>
         <sonar.login>admin</sonar.login>
-        <sonar.password>password</sonar.password>
+        <sonar.password>admin</sonar.password>
     </properties>
 
     <dependencies>
