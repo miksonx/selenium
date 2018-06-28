@@ -23,8 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <sonar.language>java</sonar.language>
-        <sonar.login>admin</sonar.login>
-        <sonar.password>admin</sonar.password>
+        <sonar.login>c8cf2a0b46bb51d6fe7ac7b5234b33068cf1fde6</sonar.login>
     </properties>
 
     <dependencies>
