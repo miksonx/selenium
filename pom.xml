@@ -58,6 +58,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://192.168.10.119:8888/manager/text</url>
+                    <server>TomcatServer</server>
+                    <path>/yourappcontextpath</path>
+                    <username>tomcat</username>
+                    <password>s3cret</password>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
