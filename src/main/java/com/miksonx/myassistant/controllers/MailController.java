@@ -20,7 +20,13 @@ public class MailController {
     @RequestMapping("/mail")
     public String mail() {
         mailSender.send("miksonx@gmail.com", "A test mail", "Body of send");
-        return "Hello World! Mail  is Sent!";
+       if (mailSender.toString().contains("MockMailSender")){
+    	   return "Hello World! Mail  is Sent!" +  " Mock mail controller used";
+       }else
+       {
+    	   return "Hello World! Mail  is Sent!" +  " Smtp Mail controller used";
+       }
+       
     }
 }
 
