@@ -20,7 +20,7 @@ public class MailController {
     @RequestMapping("/mail")
     public String mail() {
         mailSender.send("miksonx@gmail.com", "A test mail", "Body of send");
-        return "Hello World! Mail is Sent!";
+        return "Hello World! Mail  is Sent!";
     }
 }
 
