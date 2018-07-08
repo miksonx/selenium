@@ -4,18 +4,18 @@ import com.miksonx.myassistant.mail.MailSender;
 import com.miksonx.myassistant.mail.MockMailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MailController {
 
-    @Autowired
-    public MailController(@Qualifier("smtpMailSender") MailSender smtp) {
+    private MailSender mailSender;
+
+    public MailController(MailSender smtp) {
         this.mailSender = smtp;
     }
-
-    private MailSender mailSender;
 
     @RequestMapping("/mail")
     public String mail() {
