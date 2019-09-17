@@ -1,0 +1,67 @@
+version: '2'
+
+#  TO EXECUTE:
+#
+#  SET THE ENVIRONMENT VARIABLE "LOCAL_REPOS_ROOT"
+#  DO "mvn clean install" on  (FROM WITHIN "${LOCAL_REPOS_ROOT}/<yassistant/)
+#  CD TO THE LOCATION OF THIS FILE AND EXECUTE "docker-compose up -d --build"  
+#   
+#  To list the containers: "docker ps -a"
+#  To list the images:   "docker images"
+#  To enter commands inside a container do: "docker exec -it <container id> bash"
+#  To build and start do:  "docker-compose up --build"
+#  To stop and cleanup do: "docker-compose down --volumes"
+#
+services:
+#
+
+   myassistantdocker:
+     build: 
+        context: /home/mirspa/IdeaProjects/myassistant
+     image: myassistant:latest
+ #    depends_on:
+ #      - database
+ #      - rabbitman
+ #    links:
+ #      - database
+ #      - rabbitman
+     container_name: myassistantdocker
+     ports:
+       - "8080:8080"
+     restart: always
+ #    environment:
+ #      JAVA_OPTS: -Dspring.profiles.active=regression
+     network_mode: "bridge"
+
+# 
+# Selenium Chrome
+#
+   seleniumchrome:
+     depends_on:
+       - myassistantdocker
+     links:
+       - myassistantdocker
+ #      - nginxproxy
+     image: selenium/standalone-chrome-debug:3.12
+     container_name: seleniumchrome
+     ports:
+       - "4444:4444"
+       - "5800:5900"
+     restart: always
+     network_mode: "bridge"
+
+#
+# nginx
+#
+ #  nginxproxy:
+ #   build:
+ #      context: ${LOCAL_REPOS_ROOT}/tests/src/test/resources/nginx
+ #   container_name: nginxproxy
+ #   ports:
+ #      - "80:80"
+ #   depends_on:
+ #      - myassistantdocker
+ #   links:
+ #      - myassistantdocker
+ #   restart: always
+ #   network_mode: "bridge"

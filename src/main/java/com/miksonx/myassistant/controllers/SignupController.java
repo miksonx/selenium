@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.miksonx.myassistant.commands.UserCommand;
-import com.miksonx.myassistant.mail.MockMailSender;
+
 import com.miksonx.myassistant.utils.MyUtils;
 
 @Controller
@@ -30,26 +30,12 @@ import com.miksonx.myassistant.utils.MyUtils;
 public class SignupController {
 	
 	private static Log log = LogFactory.getLog(SignupController.class);
-	
-//    @RequestMapping(value="/signup", method=RequestMethod.GET)
-//    public  String signup() {
-//    	return "signup";    	
-//    }
+
     @GetMapping
     public  String signup(Model model) {
     	model.addAttribute("user", new UserCommand());
     	return "signup";    	
     }
-//    @RequestMapping(value="/signup", method=RequestMethod.POST)
-//    public  String doSignup(
-//    		@RequestParam String email,
-//    		@RequestParam String name,
-//    		@RequestParam String password){
-//    	
-//    	log.info("Email" + email + "; Name: " + 
-//    			name + "; Password:" + password);
-//    	return "redirect:/";    	
-//    }
     @PostMapping
     public  String doSignup(@Validated @ModelAttribute("user") UserCommand user, BindingResult result){
     	

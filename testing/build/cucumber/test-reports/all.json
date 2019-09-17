@@ -1,0 +1,58 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 5,
+        "name": "Verification of Login button",
+        "description": "",
+        "id": "login-functionality-on-login-page-of-application;verification-of-login-button",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3571703050,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Open the Chrome and launch the application",
+            "match": {
+              "location": "Steps.open_the_Chrome_and_launch_the_application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 187192227,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Please login",
+            "match": {
+              "location": "Steps.enter_the_Username_and_Password()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 127530781,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "Verify the credential",
+            "match": {
+              "location": "Steps.Verify_the_credential()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Login functionality on login page of Application",
+    "description": "",
+    "id": "login-functionality-on-login-page-of-application",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/MyTest.feature"
+  }
+]
