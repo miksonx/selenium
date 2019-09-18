@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3571703050,
+              "duration": 1113002300,
               "status": "passed"
             },
             "line": 8,
@@ -24,7 +24,7 @@
           },
           {
             "result": {
-              "duration": 187192227,
+              "duration": 160767784,
               "status": "passed"
             },
             "line": 11,
@@ -36,7 +36,7 @@
           },
           {
             "result": {
-              "duration": 127530781,
+              "duration": 95344889,
               "status": "passed"
             },
             "line": 14,
@@ -54,5 +54,75 @@
     "id": "login-functionality-on-login-page-of-application",
     "keyword": "Feature",
     "uri": "src/test/resources/features/MyTest.feature"
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 138136158,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in to MyAssistant as the CI user",
+            "match": {
+              "location": "RestApiTest.i_am_logged_in_to_MyAssistant_as_the_CI_user()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 7,
+        "name": "List value from greeting api",
+        "description": "",
+        "id": "greeting;list-value-from-greeting-api",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 7956030,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "We send request via api",
+            "match": {
+              "location": "RestApiTest.we_send_request_via_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 112894,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the response should contain Hello",
+            "match": {
+              "location": "RestApiTest.the_response_should_contain_Hello()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Selenium"
+          }
+        ]
+      }
+    ],
+    "name": "Greeting",
+    "description": "",
+    "id": "greeting",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/api/greeeting.feature"
   }
 ]

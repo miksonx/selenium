@@ -39,4 +39,60 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.uri("src/test/resources/features/api/greeeting.feature");
+formatter.feature({
+  "name": "Greeting",
+  "description": "",
+  "keyword": "Feature",
+  "tags": [
+    {
+      "name": "@Selenium"
+    }
+  ]
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.step({
+  "name": "I am logged in to MyAssistant as the CI user",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "RestApiTest.i_am_logged_in_to_MyAssistant_as_the_CI_user()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "List value from greeting api",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@Selenium"
+    }
+  ]
+});
+formatter.step({
+  "name": "We send request via api",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "RestApiTest.we_send_request_via_api()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the response should contain Hello",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "RestApiTest.the_response_should_contain_Hello()"
+});
+formatter.result({
+  "status": "passed"
+});
 });
