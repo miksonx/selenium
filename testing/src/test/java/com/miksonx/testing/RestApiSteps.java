@@ -44,7 +44,7 @@ import org.apache.http.impl.client.HttpClients;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 
-public class RestApiTest {				
+public class RestApiSteps {				
 
 	
     private static final String CREATE_PATH = "/greeting";

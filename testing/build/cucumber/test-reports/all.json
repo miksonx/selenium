@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1113002300,
+              "duration": 5261082607,
               "status": "passed"
             },
             "line": 8,
@@ -24,7 +24,7 @@
           },
           {
             "result": {
-              "duration": 160767784,
+              "duration": 197857480,
               "status": "passed"
             },
             "line": 11,
@@ -36,7 +36,7 @@
           },
           {
             "result": {
-              "duration": 95344889,
+              "duration": 134785896,
               "status": "passed"
             },
             "line": 14,
@@ -67,13 +67,13 @@
         "steps": [
           {
             "result": {
-              "duration": 138136158,
+              "duration": 204186031,
               "status": "passed"
             },
             "line": 5,
             "name": "I am logged in to MyAssistant as the CI user",
             "match": {
-              "location": "RestApiTest.i_am_logged_in_to_MyAssistant_as_the_CI_user()"
+              "location": "RestApiSteps.i_am_logged_in_to_MyAssistant_as_the_CI_user()"
             },
             "keyword": "Given "
           }
@@ -89,25 +89,25 @@
         "steps": [
           {
             "result": {
-              "duration": 7956030,
+              "duration": 12145222,
               "status": "passed"
             },
             "line": 8,
             "name": "We send request via api",
             "match": {
-              "location": "RestApiTest.we_send_request_via_api()"
+              "location": "RestApiSteps.we_send_request_via_api()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 112894,
+              "duration": 125856,
               "status": "passed"
             },
             "line": 9,
             "name": "the response should contain Hello",
             "match": {
-              "location": "RestApiTest.the_response_should_contain_Hello()"
+              "location": "RestApiSteps.the_response_should_contain_Hello()"
             },
             "keyword": "Then "
           }

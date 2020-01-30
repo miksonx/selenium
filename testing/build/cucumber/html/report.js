@@ -60,7 +60,7 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.match({
-  "location": "RestApiTest.i_am_logged_in_to_MyAssistant_as_the_CI_user()"
+  "location": "RestApiSteps.i_am_logged_in_to_MyAssistant_as_the_CI_user()"
 });
 formatter.result({
   "status": "passed"
@@ -80,7 +80,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "RestApiTest.we_send_request_via_api()"
+  "location": "RestApiSteps.we_send_request_via_api()"
 });
 formatter.result({
   "status": "passed"
@@ -90,7 +90,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "RestApiTest.the_response_should_contain_Hello()"
+  "location": "RestApiSteps.the_response_should_contain_Hello()"
 });
 formatter.result({
   "status": "passed"

@@ -1,4 +1,9 @@
 pipeline {
+	environment {
+    	registry = "miksonx/myassistant"
+    	registryCredential = 'dockerhub'
+    	dockerImage = ''
+  	}
     agent any
     tools { 
         maven 'Maven 3.5.4' 
@@ -16,32 +21,32 @@ pipeline {
                 ''' 
             }
         }
-        stage ('Checkout') {
+        stage ('Checkout GIT') {
             steps {
-                checkout scm
+                git 'https://github.com/miksonx/selenium.git'
             }
         }
+        stage ('Build application') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true package' 
+            }
+		}
         stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+               	script {
+          			docker.build registry + ":$BUILD_NUMBER"
+       			}
             }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                    junit testResults: '**/*.xml', testDataPublishers: [[$class: 'StabilityTestDataPublisher']]
-                    // Permission to execute
-                    //sh "chmod +x -R ${env.WORKSPACE}/startup.sh"
-
-                    // Call SH
-                    //sh "${env.WORKSPACE}/startup.sh stop"
-                    //sh "sleep 15"
-                    //sh "${env.WORKSPACE}/startup.sh start"
-                    //sh 'startup.sh stop'
-                    //sh 'sleep 15'
-                    //sh 'startup.sh start'
-                } 
-            }
-        }
+		}
+        stage('Deploy Image') {
+  			steps{
+    			script {
+      				docker.withRegistry( '', registryCredential ) {
+        			dockerImage.push()
+      				}
+    			}
+  			}
+		}
     }
 }
 
