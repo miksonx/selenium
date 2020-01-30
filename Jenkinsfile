@@ -8,10 +8,7 @@ pipeline {
     tools { 
         maven 'Maven 3.5.4' 
         jdk 'jdk8' 
-    }
-    triggers{
-        pollSCM('H/5 * * * *')
-    }
+    }s
     stages {
         stage ('Initialize') {
             steps {
