@@ -17,7 +17,7 @@ services:
 
    myassistantdocker:
      build: 
-        context: ../../../../
+        context: ../../../../../
      image: miksonx/myassistant:latest
      container_name: myassistantdocker
      ports:
