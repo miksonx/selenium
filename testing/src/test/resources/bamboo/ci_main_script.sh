@@ -37,7 +37,7 @@ echo "-------------- stopping services -------------"
 echo "-------------- working dir -------------------"
 pwd
 echo "-------------- cd to testing/src/test/resources/docker/ -------------------"
-cd $BAMBOOWD/../docker/
+cd $BAMBOOWD/testing/src/test/resources/docker/
 pwd
 
 
