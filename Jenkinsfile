@@ -30,8 +30,7 @@ pipeline {
 		}
         stage ('Test application') {
             steps {
-                sh 'cd $WORKSPACE/testing/src/test/resources/bamboo/' 
-                sh './ci_main_script.sh'
+                sh 'cd $WORKSPACE/testing/src/test/resources/bamboo/ci_main_script.sh'
             }
 		}
         stage ('Build') {
