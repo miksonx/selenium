@@ -30,7 +30,8 @@ pipeline {
 		}
         stage ('Test application') {
             steps {
-                sh 'buildandtest' 
+                sh 'cd $WORKSPACE/myassistant/testing/src/test/resources/bamboo/' 
+                sh './ci_main_script.sh'
             }
 		}
         stage ('Build') {
