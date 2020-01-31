@@ -24,8 +24,9 @@ public class Steps {
     		
     @Given("^Open the Chrome and launch the application$")					
     public void open_the_Chrome_and_launch_the_application() throws Throwable							
-    {		
-        String hubURL = "http://127.0.0.1:4444/wd/hub";
+    {	
+    	String seleniumIP = System.getenv("COMPUTERNAME");
+        String hubURL = "http://" + seleniumIP + ":4444/wd/hub";
     	URL seleniumHub = null;
         try {
             seleniumHub = new URL(hubURL);
