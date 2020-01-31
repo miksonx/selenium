@@ -30,7 +30,7 @@ pipeline {
 		}
         stage ('Test application') {
             steps {
-                sh 'buildandtest.sh' 
+                sh 'buildandtest' 
             }
 		}
         stage ('Build') {
