@@ -96,8 +96,9 @@ export ASSISTANT_API=$NGINXPROXY
 
 echo "----------- working dir -------------------------------"
 pwd
-echo "----------- cd to $LOCAL_REPOS_ROOT/testing -------------------------------"
-cd $LOCAL_REPOS_ROOT/testing
+echo "----------- cd to $BAMBOOWD/testing -------------------------------"
+cd $BAMBOOWD/testing
+#cd $LOCAL_REPOS_ROOT/testing
 pwd
 
 #echo "------------ starting the tests in testsing/---------------------------------"
