@@ -23,18 +23,18 @@ pipeline {
                 git 'https://github.com/miksonx/selenium.git'
             }
         }
+        stage ('Build application') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true org.owasp:dependency-check-maven:5.2.0:aggregate -Dformat=XML -DoutputDirectory=target/dependency-check-report.xml cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=xml package' 
+            }
+		}
         stage('SonarQube analysis') {
         	steps {
     			withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar') { // You can override the credential to be used
-      				sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+      				sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar -Dsonar.dependencyCheck.reportPath=target/dependency-check-report.xml '
     			}
     		}
   		}
-        stage ('Build application') {
-            steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true package' 
-            }
-		}
         stage ('Test application') {
             steps {
                 sh '$WORKSPACE/testing/src/test/resources/bamboo/ci_main_script.sh'
