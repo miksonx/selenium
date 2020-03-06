@@ -33,7 +33,22 @@
         
 
     </properties>
-
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>cobertura</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
     <groupId>com.miksonx</groupId>
     <artifactId>myassistant</artifactId>
     <version>0.0.1-SNAPSHOT</version>

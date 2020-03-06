@@ -1,5 +1,5 @@
 {
-                                    "bambooBuildNumber":"Build-W5-${bambooBuildNumber}",
+                                    "bambooBuildNumber":"Build-W10-${bambooBuildNumber}",
                                     "bambooGitBranch":"${bambooCurrentGitBranch}",
-                                    "timestamp":"20200130-15:52:26"
+                                    "timestamp":"20200306-18:20:28"
                                     }
