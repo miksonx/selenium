@@ -124,22 +124,6 @@
             </snapshots>
         </repository>
     </repositories>
-    <reporting>
-      <plugins>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.7</version>
-          <reportSets>
-            <reportSet>
-              <reports>
-                <report>cobertura</report>
-              </reports>
-            </reportSet>
-          </reportSets>
-        </plugin>
-      </plugins>
-    </reporting>
     <build>
         <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
         <plugins>
@@ -201,11 +185,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
             </plugin>
 
             <plugin>
