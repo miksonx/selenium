@@ -25,7 +25,7 @@ pipeline {
         }
         stage ('Build application') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true org.owasp:dependency-check-maven:5.2.0:aggregate -Dformat=XML -DoutputDirectory=target/dependency-check-report.xml cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=xml package' 
+                sh 'mvn -Dmaven.test.failure.ignore=true org.owasp:dependency-check-maven:5.3.0:aggregate -Dformat=XML -DoutputDirectory=target/dependency-check-report.xml cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=xml package' 
             }
 		}
         stage('SonarQube analysis') {
