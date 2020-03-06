@@ -30,8 +30,8 @@ echo "-------------- LOCAL_REPOS_ROOT -------------"
 export LOCAL_REPOS_ROOT=$BAMBOOWD/../../../../../
 echo $LOCAL_REPOS_ROOT
 
-echo "------------- files in bamboo wd ------------"
-ls -Rl $BAMBOOWD
+#echo "------------- files in bamboo wd ------------"
+#ls -Rl $BAMBOOWD
 
 echo "-------------- stopping services -------------"
 echo "-------------- working dir -------------------"
