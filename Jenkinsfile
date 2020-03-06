@@ -47,7 +47,7 @@ pipeline {
        			}
             }
 		}
-		stage("Docker scan"){
+		stage("Docker scan image"){
       		steps {
       			sh '''
         		docker run -d --name db arminc/clair-db
