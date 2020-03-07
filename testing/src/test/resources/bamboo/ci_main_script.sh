@@ -104,3 +104,16 @@ pwd
 #echo "------------ starting the tests in testsing/---------------------------------"
 #mvn clean test -Dtest=SmokeTest -DMAVEN_OPTS="-e -Xmx4g -Xms2g"
 mvn clean test
+
+#STOP Docker compose applications
+cd $BAMBOOWD/testing/src/test/resources/docker/
+
+docker-compose down --volumes
+echo "sleeping 10"
+sleep 10
+docker ps -a
+docker-compose down --volumes
+echo "sleeping 10"
+sleep 10
+docker ps -a
+
