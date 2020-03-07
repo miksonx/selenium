@@ -74,7 +74,7 @@ pipeline {
 			sleep 30
 			docker ps -a
 			echo "sleeping 5"
-			leep 5
+			sleep 5
 			docker ps -a
 			DOCKER_GATEWAY=$(docker network inspect bridge --format "{{range .IPAM.Config}}{{.Gateway}}{{end}}")
         		wget -qO clair-scanner https://github.com/arminc/clair-scanner/releases/download/v12/clair-scanner_linux_amd64 && chmod +x clair-scanner
