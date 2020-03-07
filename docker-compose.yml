@@ -1,0 +1,39 @@
+version: '2'
+
+#  TO EXECUTE:
+#
+#  SET THE ENVIRONMENT VARIABLE "LOCAL_REPOS_ROOT"
+#  DO "mvn clean install" on  (FROM WITHIN "${LOCAL_REPOS_ROOT}/<myassistant/)
+#  CD TO THE LOCATION OF THIS FILE AND EXECUTE "docker-compose up -d --build"  
+#   
+#  To list the containers: "docker ps -a"
+#  To list the images:   "docker images"
+#  To enter commands inside a container do: "docker exec -it <container id> bash"
+#  To build and start do:  "docker-compose up --build"
+#  To stop and cleanup do: "docker-compose down --volumes"
+#
+services:
+#
+
+   db:
+     image: arminc/clair-db
+     container_name: db
+     ports:
+       - "5432:5432"
+     restart: always
+     network_mode: "bridge"
+
+# Selenium Chrome
+#
+   clair:
+     depends_on:
+       - db
+     links:
+       - db:postgres
+     image: arminc/clair-local-scan
+     container_name: clair
+     ports:
+       - "6060:6060"
+     restart: always
+     network_mode: "bridge"
+

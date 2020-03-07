@@ -54,7 +54,29 @@ pipeline {
         		#sleep 15 # wait for db to come up
         		#docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan
         		#sleep 1
-        		DOCKER_GATEWAY=$(docker network inspect bridge --format "{{range .IPAM.Config}}{{.Gateway}}{{end}}")
+        		docker-compose down --volumes
+			echo "sleeping 10"
+			sleep 10
+			docker ps -a
+			docker-compose down --volumes
+			echo "sleeping 10"
+			sleep 10
+			docker ps -a
+
+
+			echo "--------------- working dir -------------------"
+			pwd
+
+			# docker must run in background....otherwise the script will hang on the io
+			docker-compose up -d
+			# wait for all containers to start
+			echo "sleeping 60"
+			sleep 30
+			docker ps -a
+			echo "sleeping 5"
+			leep 5
+			docker ps -a
+			DOCKER_GATEWAY=$(docker network inspect bridge --format "{{range .IPAM.Config}}{{.Gateway}}{{end}}")
         		wget -qO clair-scanner https://github.com/arminc/clair-scanner/releases/download/v12/clair-scanner_linux_amd64 && chmod +x clair-scanner
 		        ./clair-scanner --ip="$DOCKER_GATEWAY" "$registry:$BUILD_NUMBER" || exit 0
       			'''
