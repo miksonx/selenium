@@ -77,8 +77,9 @@ pipeline {
 			sleep 5
 			docker ps -a
 			DOCKER_GATEWAY=$(docker network inspect bridge --format "{{range .IPAM.Config}}{{.Gateway}}{{end}}")
-        		wget -qO clair-scanner https://github.com/arminc/clair-scanner/releases/download/v12/clair-scanner_linux_amd64 && chmod +x clair-scanner
-		        ./clair-scanner --ip="$DOCKER_GATEWAY" "$registry:$BUILD_NUMBER" || exit 0
+        		DOCKER_IP=$(docker inspect --format "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" jenkins)
+			wget -qO clair-scanner https://github.com/arminc/clair-scanner/releases/download/v12/clair-scanner_linux_amd64 && chmod +x clair-scanner
+		        ./clair-scanner --ip="$DOCKER_IP" --clair=http://"$DOCKER_GATEWAY":6060 "$registry:$BUILD_NUMBER" || exit 0
       			'''
       	    }
     	}
