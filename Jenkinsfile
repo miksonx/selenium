@@ -79,7 +79,7 @@ pipeline {
 			DOCKER_GATEWAY=$(docker network inspect bridge --format "{{range .IPAM.Config}}{{.Gateway}}{{end}}")
         		DOCKER_IP=$(docker inspect --format "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" jenkins)
 			wget -qO clair-scanner https://github.com/arminc/clair-scanner/releases/download/v12/clair-scanner_linux_amd64 && chmod +x clair-scanner
-		        ./clair-scanner --ip="$DOCKER_IP" --clair=http://"$DOCKER_GATEWAY":6060 "$registry:$BUILD_NUMBER"
+		        ./clair-scanner --ip="$DOCKER_IP" --clair=http://"$DOCKER_GATEWAY":6060 "$registry:$BUILD_NUMBER" || exit 0
                         docker-compose down --volumes
                         echo "sleeping 10"
                         sleep 10
