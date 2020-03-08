@@ -92,6 +92,22 @@ pipeline {
       			'''
       	    }
     	}
+        stage("Docker scan image stop clair"){
+            steps {
+                        sh '''
+                        docker-compose down --volumes
+                        echo "sleeping 10"
+                        sleep 10
+                        docker ps -a
+                        docker-compose down --volumes
+                        echo "sleeping 10"
+                        sleep 10
+                        docker ps -a
+
+                        '''
+            }
+        }
+
         stage('Deploy Image') {
   			steps{
     			script {
